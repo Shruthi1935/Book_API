@@ -1,0 +1,35 @@
+(req, res) => { ... }
+- callback function that runs when a request is made - has both req & res
+
+
+function(b) {
+  return b.id == req.params.id;
+}
+SAME AS
+b => b.id == req.params.id
+
+
+book ? res.json(book) : res.status(404).json({ msg: 'Book not found' });
+condition ? doIfTrue : doIfFalse
+SAME AS
+if (book) {
+  res.json(book);
+} 
+else {
+  res.status(404).json({ msg: 'Book not found' });
+}
+
+
+res.json(books);
+- returns elements from the books array as JSON
+- JSON is what APIs usually return - POSTMAN or browser get it in a structured format
+- APIs take in JSON and return JSON, so they take in text and return text
+- JSON data needs to be parsed for the computer to understand, its nice enough to take/send what humans comprehend and it converts text for itself to understand it
+
+
+books.find(...)
+- searches the books array for a book with a matching id
+
+
+b => b.id == req.params.id
+- compares each book id from array to ID from the endpoint/route/URL

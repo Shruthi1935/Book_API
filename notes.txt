@@ -1,0 +1,40 @@
+npm init -y
+- initializes node
+
+npm install express
+- installs express
+
+const express = require('express');
+- this loads the express library
+- express makes it easy to create routes, handle requests, and build web APIs quickly
+
+const app = express();
+- this creates an app using the express server
+
+const PORT = 3000;
+- this hosts the app on server 3000
+
+app.use(express.json());
+- this automatically parses json files from requests made
+- this is needed - makes it easier to access data from the request body
+***
+    JSON: lightweight way to send data as a form of request (GET, POST, PUT, DELETE, DROP)
+        {
+        "title": "The Hobbit",
+        "author": "J.R.R. Tolkien"
+        }
+    Why Parse JSON Payloads? When server gets a request with a JSON payload, it's just raw text. To actually use that text, you need to parse it.
+***
+
+app.get('/', (req, res) => {
+  res.send('Welcome to the Book API 📚');
+});
+- this is a route handler for GET request
+- the endpoint here is '/' aka the homepage
+- the response for this route is the welcome message
+
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
+- starts the server on the specified port
+
